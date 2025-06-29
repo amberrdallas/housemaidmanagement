@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Save, X, Calendar, User, Phone, MapPin, FileText, Building, Plane, Mail, Briefcase, Camera, CreditCard, Hash, AlertCircle, Shield, Users, Ticket } from 'lucide-react';
+import { Save, X, User, Phone, MapPin, FileText, Building, Plane, Briefcase, Camera, CreditCard, Hash, AlertCircle, Shield, Users, Ticket } from 'lucide-react';
 import { Housemaid } from '../types/housemaid';
 import { countries, passportCountries } from '../data/countries';
 import { generateHousemaidNumberIfEligible, shouldGenerateHousemaidNumber } from '../utils/localStorage';
