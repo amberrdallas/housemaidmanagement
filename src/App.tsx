@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Housemaid } from './types/housemaid';
 import { User, AuthState, LoginCredentials } from './types/user';
 import { BrandSettings as BrandSettingsType } from './types/brand';
@@ -12,7 +12,7 @@ import LoginPage from './components/LoginPage';
 import UserManagement from './components/UserManagement';
 import BrandSettings from './components/BrandSettings';
 import BrandLogo from './components/BrandLogo';
-import { LayoutDashboard, Users, Plus, Settings, LogOut, User as UserIcon, Shield, Building } from 'lucide-react';
+import { LayoutDashboard, Users, Plus, Settings, LogOut, Shield, Building } from 'lucide-react';
 
 function App() {
   const [housemaids, setHousemaids] = useState<Housemaid[]>([]);

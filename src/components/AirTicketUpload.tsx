@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Upload, Plane, X, Eye, Download, Trash2, Ticket } from 'lucide-react';
+import { Upload, Plane, Eye, Download, Trash2, Ticket } from 'lucide-react';
 
 interface AirTicketUploadProps {
   airTicket: {
