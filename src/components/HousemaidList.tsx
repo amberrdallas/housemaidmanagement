@@ -107,7 +107,7 @@ const HousemaidList: React.FC<HousemaidListProps> = ({
       if (employmentFilter !== 'all') {
         if (employmentFilter === 'eligible') {
           const calc = housemaid.employment?.startDate 
-            ? calculateEmploymentStatus(housemaid.employment.startDate, housemaid.employment.status)
+            ? calculateEmploymentStatus(housemaid.employment.startDate)
             : null;
           matchesEmployment = !!(calc?.isEligibleForPermanent) && housemaid.employment?.status === 'probationary';
         } else {
@@ -211,7 +211,7 @@ const HousemaidList: React.FC<HousemaidListProps> = ({
 
   const HousemaidCard: React.FC<{ housemaid: Housemaid }> = ({ housemaid }) => {
     const employmentCalc = housemaid.employment?.startDate 
-      ? calculateEmploymentStatus(housemaid.employment.startDate, housemaid.employment.status)
+      ? calculateEmploymentStatus(housemaid.employment.startDate)
       : null;
 
     const isSelected = selectedHousemaids.has(housemaid.id);
@@ -421,7 +421,7 @@ const HousemaidList: React.FC<HousemaidListProps> = ({
 
   const HousemaidRow: React.FC<{ housemaid: Housemaid }> = ({ housemaid }) => {
     const employmentCalc = housemaid.employment?.startDate 
-      ? calculateEmploymentStatus(housemaid.employment.startDate, housemaid.employment.status)
+      ? calculateEmploymentStatus(housemaid.employment.startDate)
       : null;
 
     const isSelected = selectedHousemaids.has(housemaid.id);
