@@ -506,17 +506,7 @@ const HousemaidForm: React.FC<HousemaidFormProps> = ({ housemaid, onSave, onCanc
     return diffDays;
   };
 
-  const calculateEmploymentDuration = () => {
-    if (!formData.employment.startDate || !formData.employment.effectiveDate) return null;
-    const startDate = new Date(formData.employment.startDate);
-    const effectiveDate = new Date(formData.employment.effectiveDate);
-    const diffTime = effectiveDate.getTime() - startDate.getTime();
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    return diffDays;
-  };
-
   const remainingDays = calculateRemainingDays();
-  const employmentDuration = calculateEmploymentDuration();
 
   // Check if effective date should be shown
   const shouldShowEffectiveDate = formData.employment.status === 'resigned' || formData.employment.status === 'terminated';
@@ -1009,7 +999,7 @@ const HousemaidForm: React.FC<HousemaidFormProps> = ({ housemaid, onSave, onCanc
                   value={formData.saudiRecruitmentAgency.licenseNumber || ''}
                   onChange={(e) => updateSaudiRecruitmentAgency('licenseNumber', e.target.value)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
-                  placeholder="Enter Saudi agency license number"
+                  placeholder="Enter agency license number"
                 />
               </div>
             </div>
@@ -1032,7 +1022,7 @@ const HousemaidForm: React.FC<HousemaidFormProps> = ({ housemaid, onSave, onCanc
                   value={formData.saudiRecruitmentAgency.phoneNumber || ''}
                   onChange={(e) => updateSaudiRecruitmentAgency('phoneNumber', e.target.value)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
-                  placeholder="Enter Saudi agency phone number"
+                  placeholder="Enter agency phone number"
                 />
               </div>
             </div>
@@ -1045,7 +1035,7 @@ const HousemaidForm: React.FC<HousemaidFormProps> = ({ housemaid, onSave, onCanc
                   value={formData.saudiRecruitmentAgency.email || ''}
                   onChange={(e) => updateSaudiRecruitmentAgency('email', e.target.value)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
-                  placeholder="Enter Saudi agency email address"
+                  placeholder="Enter agency email address"
                 />
               </div>
               <div>
@@ -1055,7 +1045,7 @@ const HousemaidForm: React.FC<HousemaidFormProps> = ({ housemaid, onSave, onCanc
                   onChange={(e) => updateSaudiRecruitmentAgency('address', e.target.value)}
                   rows={3}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
-                  placeholder="Enter Saudi agency address"
+                  placeholder="Enter agency address"
                 />
               </div>
             </div>
@@ -1078,7 +1068,7 @@ const HousemaidForm: React.FC<HousemaidFormProps> = ({ housemaid, onSave, onCanc
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   required
                 >
-                  <option value="probationary">Probationary</option>
+                  <option value="probationary">Probationary Period</option>
                   <option value="permanent">Permanent</option>
                   <option value="resigned">Resigned</option>
                   <option value="terminated">Terminated</option>
@@ -1151,11 +1141,6 @@ const HousemaidForm: React.FC<HousemaidFormProps> = ({ housemaid, onSave, onCanc
                   <p className="text-xs text-gray-600 mt-1">
                     Date when {formData.employment.status} status became effective
                   </p>
-                  {employmentDuration !== null && formData.employment.startDate && formData.employment.effectiveDate && (
-                    <p className="text-sm text-blue-600 mt-1">
-                      Duration: {employmentDuration} days from start date to effective date
-                    </p>
-                  )}
                 </div>
               </div>
             )}

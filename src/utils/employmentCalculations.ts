@@ -76,7 +76,7 @@ export const getEmploymentStatusText = (status: 'probationary' | 'permanent' | '
     return 'Eligible for Permanent';
   }
   
-  return 'Probationary';
+  return 'Probationary Period';
 };
 
 export const formatDaysWorked = (days: number): string => {
