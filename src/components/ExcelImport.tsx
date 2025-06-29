@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Upload, FileSpreadsheet, X, Download, AlertCircle, CheckCircle, Eye, Trash2 } from 'lucide-react';
+import { Upload, FileSpreadsheet, X, Download, AlertCircle, CheckCircle, Trash2 } from 'lucide-react';
 import * as XLSX from 'xlsx';
 import { Housemaid } from '../types/housemaid';
 import { generateHousemaidNumberIfEligible } from '../utils/localStorage';
@@ -378,8 +378,8 @@ const ExcelImport: React.FC<ExcelImportProps> = ({ onImport, onClose }) => {
       const valid: Housemaid[] = [];
       const invalid: Array<{ row: number; data: any; errors: string[] }> = [];
 
-      dataRows.forEach((row: any[], index) => {
-        if (row.every(cell => !cell || cell === '')) return; // Skip empty rows
+      dataRows.forEach((row: any, index) => {
+        if (row.every((cell: any) => !cell || cell === '')) return; // Skip empty rows
 
         const rowData: any = {};
         
