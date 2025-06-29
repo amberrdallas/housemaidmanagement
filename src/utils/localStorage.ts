@@ -77,5 +77,5 @@ export const shouldGenerateHousemaidNumber = (name: string, currentNumber: strin
   }
   
   // Only generate if name is provided and not empty
-  return name && name.trim().length > 0;
+  return Boolean(name && name.trim().length > 0);
 };
