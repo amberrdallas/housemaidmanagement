@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Download, Camera } from 'lucide-react';
+import { X, Download } from 'lucide-react';
 
 interface ProfilePhotoViewerProps {
   photo: {

@@ -5,16 +5,12 @@ import {
   FileSpreadsheet, 
   File, 
   X, 
-  Calendar,
   User,
   Building,
   Shield,
   Plane,
   Users,
-  AlertTriangle,
-  CheckCircle,
-  Eye,
-  Settings
+  AlertTriangle
 } from 'lucide-react';
 import { Housemaid } from '../types/housemaid';
 import { BrandSettings } from '../types/brand';
