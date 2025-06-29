@@ -579,7 +579,7 @@ const ExcelImport: React.FC<ExcelImportProps> = ({ onImport, onClose }) => {
                     <CheckCircle className="h-6 w-6 text-green-600 mr-2" />
                     <div>
                       <p className="font-medium text-green-900">Valid Records</p>
-                      <p className="text-2xl font-bold text-green-900">{preview.valid.length}</p>
+                      <p className="text-2xl font-bold text-green-900">{preview?.valid.length || 0}</p>
                     </div>
                   </div>
                 </div>
@@ -588,7 +588,7 @@ const ExcelImport: React.FC<ExcelImportProps> = ({ onImport, onClose }) => {
                     <AlertCircle className="h-6 w-6 text-red-600 mr-2" />
                     <div>
                       <p className="font-medium text-red-900">Invalid Records</p>
-                      <p className="text-2xl font-bold text-red-900">{preview.invalid.length}</p>
+                      <p className="text-2xl font-bold text-red-900">{preview?.invalid.length || 0}</p>
                     </div>
                   </div>
                 </div>
@@ -597,14 +597,14 @@ const ExcelImport: React.FC<ExcelImportProps> = ({ onImport, onClose }) => {
                     <FileSpreadsheet className="h-6 w-6 text-blue-600 mr-2" />
                     <div>
                       <p className="font-medium text-blue-900">Total Processed</p>
-                      <p className="text-2xl font-bold text-blue-900">{preview.valid.length + preview.invalid.length}</p>
+                      <p className="text-2xl font-bold text-blue-900">{(preview?.valid.length || 0) + (preview?.invalid.length || 0)}</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Valid Records Preview */}
-              {preview.valid.length > 0 && (
+              {preview && preview.valid.length > 0 && (
                 <div>
                   <h4 className="font-medium text-gray-900 mb-3 flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-600 mr-2" />
@@ -653,7 +653,7 @@ const ExcelImport: React.FC<ExcelImportProps> = ({ onImport, onClose }) => {
               )}
 
               {/* Invalid Records */}
-              {preview.invalid.length > 0 && (
+              {preview && preview.invalid.length > 0 && (
                 <div>
                   <h4 className="font-medium text-gray-900 mb-3 flex items-center">
                     <AlertCircle className="h-5 w-5 text-red-600 mr-2" />
@@ -704,11 +704,11 @@ const ExcelImport: React.FC<ExcelImportProps> = ({ onImport, onClose }) => {
                   </button>
                   <button
                     onClick={handleImport}
-                    disabled={preview.valid.length === 0}
+                    disabled={(preview?.valid.length || 0) === 0}
                     className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed flex items-center space-x-2"
                   >
                     <Upload className="h-4 w-4" />
-                    <span>Import {preview.valid.length} Records</span>
+                    <span>Import {preview?.valid.length || 0} Records</span>
                   </button>
                 </div>
               </div>
