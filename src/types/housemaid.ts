@@ -61,6 +61,14 @@ export interface Housemaid {
     email?: string;
     address?: string;
   };
+  saudiRecruitmentAgency: {
+    name: string;
+    licenseNumber?: string;
+    contactPerson?: string;
+    phoneNumber?: string;
+    email?: string;
+    address?: string;
+  };
   complaint: {
     description: string;
     status: 'pending' | 'complete';

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Save, X, Calendar, User, Phone, MapPin, FileText, Building, Plane, Mail, Briefcase, Camera, CreditCard, Hash, AlertCircle, Shield, Users, Ticket } from 'lucide-react';
+import { Save, X, Calendar, User, Phone, MapPin, FileText, Building, Plane, Mail, Briefcase, Camera, CreditCard, Hash, AlertCircle, Shield, Users, Ticket, Building2 } from 'lucide-react';
 import { Housemaid } from '../types/housemaid';
 import { countries, passportCountries } from '../data/countries';
 import { generateHousemaidNumberIfEligible, shouldGenerateHousemaidNumber } from '../utils/localStorage';
@@ -76,6 +76,14 @@ const HousemaidForm: React.FC<HousemaidFormProps> = ({ housemaid, onSave, onCanc
       effectiveDate: undefined
     },
     recruitmentAgency: {
+      name: '',
+      licenseNumber: '',
+      contactPerson: '',
+      phoneNumber: '',
+      email: '',
+      address: ''
+    },
+    saudiRecruitmentAgency: {
       name: '',
       licenseNumber: '',
       contactPerson: '',
@@ -170,6 +178,14 @@ const HousemaidForm: React.FC<HousemaidFormProps> = ({ housemaid, onSave, onCanc
           effectiveDate: housemaid.employment?.effectiveDate || undefined
         },
         recruitmentAgency: housemaid.recruitmentAgency || {
+          name: '',
+          licenseNumber: '',
+          contactPerson: '',
+          phoneNumber: '',
+          email: '',
+          address: ''
+        },
+        saudiRecruitmentAgency: housemaid.saudiRecruitmentAgency || {
           name: '',
           licenseNumber: '',
           contactPerson: '',
@@ -313,6 +329,13 @@ const HousemaidForm: React.FC<HousemaidFormProps> = ({ housemaid, onSave, onCanc
     setFormData(prev => ({
       ...prev,
       recruitmentAgency: { ...prev.recruitmentAgency, [field]: value }
+    }));
+  };
+
+  const updateSaudiRecruitmentAgency = (field: string, value: string) => {
+    setFormData(prev => ({
+      ...prev,
+      saudiRecruitmentAgency: { ...prev.saudiRecruitmentAgency, [field]: value }
     }));
   };
 
@@ -944,6 +967,84 @@ const HousemaidForm: React.FC<HousemaidFormProps> = ({ housemaid, onSave, onCanc
                   onChange={(e) => updateRecruitmentAgency('address', e.target.value)}
                   rows={3}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  placeholder="Enter agency address"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Saudi Recruitment Agency Information */}
+        <div className="bg-green-50 p-6 rounded-lg border border-green-200">
+          <div className="flex items-center mb-4">
+            <Building2 className="h-5 w-5 text-green-600 mr-2" />
+            <h3 className="text-xl font-semibold text-gray-900">Saudi Recruitment Agency</h3>
+          </div>
+          <div className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Agency Name</label>
+                <input
+                  type="text"
+                  value={formData.saudiRecruitmentAgency.name}
+                  onChange={(e) => updateSaudiRecruitmentAgency('name', e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  placeholder="Enter Saudi recruitment agency name"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">License Number</label>
+                <input
+                  type="text"
+                  value={formData.saudiRecruitmentAgency.licenseNumber || ''}
+                  onChange={(e) => updateSaudiRecruitmentAgency('licenseNumber', e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  placeholder="Enter agency license number"
+                />
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Contact Person</label>
+                <input
+                  type="text"
+                  value={formData.saudiRecruitmentAgency.contactPerson || ''}
+                  onChange={(e) => updateSaudiRecruitmentAgency('contactPerson', e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  placeholder="Enter contact person name"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                <input
+                  type="tel"
+                  value={formData.saudiRecruitmentAgency.phoneNumber || ''}
+                  onChange={(e) => updateSaudiRecruitmentAgency('phoneNumber', e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  placeholder="Enter agency phone number"
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                <input
+                  type="email"
+                  value={formData.saudiRecruitmentAgency.email || ''}
+                  onChange={(e) => updateSaudiRecruitmentAgency('email', e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  placeholder="Enter agency email address"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Address</label>
+                <textarea
+                  value={formData.saudiRecruitmentAgency.address || ''}
+                  onChange={(e) => updateSaudiRecruitmentAgency('address', e.target.value)}
+                  rows={3}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
                   placeholder="Enter agency address"
                 />
               </div>

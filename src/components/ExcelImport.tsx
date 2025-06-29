@@ -70,6 +70,15 @@ const ExcelImport: React.FC<ExcelImportProps> = ({ onImport, onClose }) => {
     'Agency Phone': 'recruitmentAgency.phoneNumber',
     'Agency Email': 'recruitmentAgency.email',
     'Agency Address': 'recruitmentAgency.address',
+    'Saudi Agency Name': 'saudiRecruitmentAgency.name',
+    'Saudi Recruitment Agency': 'saudiRecruitmentAgency.name',
+    'Saudi Agency License': 'saudiRecruitmentAgency.licenseNumber',
+    'Saudi License Number': 'saudiRecruitmentAgency.licenseNumber',
+    'Saudi Agency Contact': 'saudiRecruitmentAgency.contactPerson',
+    'Saudi Contact Person': 'saudiRecruitmentAgency.contactPerson',
+    'Saudi Agency Phone': 'saudiRecruitmentAgency.phoneNumber',
+    'Saudi Agency Email': 'saudiRecruitmentAgency.email',
+    'Saudi Agency Address': 'saudiRecruitmentAgency.address',
     'Complaint Description': 'complaint.description',
     'Complaint Status': 'complaint.status',
     'Date Reported': 'complaint.dateReported',
@@ -113,6 +122,12 @@ const ExcelImport: React.FC<ExcelImportProps> = ({ onImport, onClose }) => {
         'Agency Phone': '+63 2 123 4567',
         'Agency Email': 'info@abcrecruitment.ph',
         'Agency Address': '456 Recruitment St, Manila, Philippines',
+        'Saudi Agency Name': 'Saudi Recruitment Co.',
+        'Saudi Agency License': 'SA-LIC-2024-001',
+        'Saudi Agency Contact': 'Abdullah Al-Rashid',
+        'Saudi Agency Phone': '+966 11 123 4567',
+        'Saudi Agency Email': 'info@saudirecruitment.sa',
+        'Saudi Agency Address': 'Riyadh, Saudi Arabia',
         'Complaint Description': 'No complaints',
         'Complaint Status': 'pending',
         'Date Reported': '2024-01-01',
@@ -291,6 +306,14 @@ const ExcelImport: React.FC<ExcelImportProps> = ({ onImport, onClose }) => {
         phoneNumber: data.recruitmentAgency?.phoneNumber?.trim() || '',
         email: data.recruitmentAgency?.email?.trim() || '',
         address: data.recruitmentAgency?.address?.trim() || ''
+      },
+      saudiRecruitmentAgency: {
+        name: data.saudiRecruitmentAgency?.name?.trim() || '',
+        licenseNumber: data.saudiRecruitmentAgency?.licenseNumber?.trim() || '',
+        contactPerson: data.saudiRecruitmentAgency?.contactPerson?.trim() || '',
+        phoneNumber: data.saudiRecruitmentAgency?.phoneNumber?.trim() || '',
+        email: data.saudiRecruitmentAgency?.email?.trim() || '',
+        address: data.saudiRecruitmentAgency?.address?.trim() || ''
       },
       complaint: {
         description: data.complaint?.description?.trim() || '',
@@ -598,7 +621,8 @@ const ExcelImport: React.FC<ExcelImportProps> = ({ onImport, onClose }) => {
                             <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Phone</th>
                             <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Passport</th>
                             <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Employer</th>
-                            <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Agency</th>
+                            <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">PH Agency</th>
+                            <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">SA Agency</th>
                             <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
                           </tr>
                         </thead>
@@ -612,6 +636,7 @@ const ExcelImport: React.FC<ExcelImportProps> = ({ onImport, onClose }) => {
                               <td className="px-4 py-2 text-sm text-gray-600">{housemaid.identity.passportNumber}</td>
                               <td className="px-4 py-2 text-sm text-gray-600">{housemaid.employer.name}</td>
                               <td className="px-4 py-2 text-sm text-yellow-700">{housemaid.recruitmentAgency.name}</td>
+                              <td className="px-4 py-2 text-sm text-green-700">{housemaid.saudiRecruitmentAgency.name || '-'}</td>
                               <td className="px-4 py-2 text-sm text-gray-600 capitalize">{housemaid.employment.status}</td>
                             </tr>
                           ))}
