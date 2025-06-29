@@ -1,7 +1,6 @@
 import React from 'react';
 import { AlertTriangle, CheckCircle, Info } from 'lucide-react';
-import { checkContrast } from '../utils/colorUtils';
-import type { ColorContrast } from '../utils/colorUtils';
+import { checkContrast, ColorContrast } from '../utils/colorUtils';
 
 interface ColorContrastCheckerProps {
   foreground: string;
@@ -18,7 +17,7 @@ const ColorContrastChecker: React.FC<ColorContrastCheckerProps> = ({
   isLargeText = false,
   className = ''
 }) => {
-  const contrast: ColorContrast = checkContrast(foreground, background);
+  const contrast = checkContrast(foreground, background);
   
   const getIcon = () => {
     switch (contrast.level) {

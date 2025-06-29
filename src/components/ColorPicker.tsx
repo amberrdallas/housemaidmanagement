@@ -3,6 +3,8 @@ import { Palette, Check, Copy, RefreshCw } from 'lucide-react';
 import { 
   hexToRgb, 
   rgbToHsl, 
+  hslToRgb, 
+  rgbToHex, 
   isValidHexColor, 
   normalizeColor,
   generateColorPalette 
