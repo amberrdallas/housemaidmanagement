@@ -85,7 +85,7 @@ const Dashboard: React.FC<DashboardProps> = ({ housemaids, onViewHousemaid }) =>
     // Calculate eligible for permanent (90+ days but still probationary)
     const eligibleForPermanent = housemaids.filter(h => {
       if (h.employment?.status !== 'probationary' || !h.employment?.startDate) return false;
-      const calculation = calculateEmploymentStatus(h.employment.startDate, h.employment.status);
+      const calculation = calculateEmploymentStatus(h.employment.startDate);
       return calculation.isEligibleForPermanent;
     });
 
@@ -432,7 +432,7 @@ const Dashboard: React.FC<DashboardProps> = ({ housemaids, onViewHousemaid }) =>
         <div className="space-y-4">
           {recentActivity.map((housemaid) => {
             const employmentCalc = housemaid.employment?.startDate 
-              ? calculateEmploymentStatus(housemaid.employment.startDate, housemaid.employment.status)
+              ? calculateEmploymentStatus(housemaid.employment.startDate)
               : null;
 
             return (
@@ -613,7 +613,7 @@ const Dashboard: React.FC<DashboardProps> = ({ housemaids, onViewHousemaid }) =>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   {filteredData.map((housemaid) => {
                     const employmentCalc = housemaid.employment?.startDate 
-                      ? calculateEmploymentStatus(housemaid.employment.startDate, housemaid.employment.status)
+                      ? calculateEmploymentStatus(housemaid.employment.startDate)
                       : null;
 
                     return (
@@ -819,7 +819,7 @@ const Dashboard: React.FC<DashboardProps> = ({ housemaids, onViewHousemaid }) =>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {selectedAgency.housemaids.map((housemaid) => {
                   const employmentCalc = housemaid.employment?.startDate 
-                    ? calculateEmploymentStatus(housemaid.employment.startDate, housemaid.employment.status)
+                    ? calculateEmploymentStatus(housemaid.employment.startDate)
                     : null;
 
                   return (
