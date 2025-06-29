@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Housemaid } from './types/housemaid';
-import { User, AuthState, LoginCredentials } from './types/user';
+import { AuthState, LoginCredentials } from './types/user';
 import { BrandSettings as BrandSettingsType } from './types/brand';
 import { saveHousemaids, loadHousemaids } from './utils/localStorage';
 import { initializeUsers, authenticateUser, authenticateGoogleUser, getCurrentUser, logout, hasPermission } from './utils/auth';
@@ -311,7 +311,6 @@ function App() {
           <Dashboard
             housemaids={housemaids}
             onViewHousemaid={handleViewHousemaid}
-            onEditHousemaid={handleEdit}
           />
         )}
         

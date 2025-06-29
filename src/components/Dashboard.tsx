@@ -16,9 +16,7 @@ import {
   Mail,
   Eye,
   X,
-  Filter,
   Search,
-  Download,
   Hash,
   Building2,
   Ticket,
@@ -33,7 +31,6 @@ import StatusBadge from './StatusBadge';
 interface DashboardProps {
   housemaids: Housemaid[];
   onViewHousemaid: (housemaid: Housemaid) => void;
-  onEditHousemaid: (housemaid: Housemaid) => void;
 }
 
 interface DashboardCard {
@@ -53,7 +50,7 @@ interface RecruitmentAgencyStats {
   percentage: number;
 }
 
-const Dashboard: React.FC<DashboardProps> = ({ housemaids, onViewHousemaid, onEditHousemaid }) => {
+const Dashboard: React.FC<DashboardProps> = ({ housemaids, onViewHousemaid }) => {
   const [selectedCard, setSelectedCard] = useState<DashboardCard | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedAgency, setSelectedAgency] = useState<RecruitmentAgencyStats | null>(null);
