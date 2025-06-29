@@ -25,13 +25,10 @@ import {
   List,
   SortAsc,
   SortDesc,
-  MoreVertical,
-  Star,
   Clock,
   Award,
   AlertTriangle,
   CheckCircle,
-  X,
   UserX,
   UserMinus
 } from 'lucide-react';
@@ -73,7 +70,6 @@ const HousemaidList: React.FC<HousemaidListProps> = ({
   const [showImport, setShowImport] = useState(false);
   const [showReports, setShowReports] = useState(false);
   const [selectedHousemaids, setSelectedHousemaids] = useState<Set<string>>(new Set());
-  const [showBulkActions, setShowBulkActions] = useState(false);
 
   const currentUser = getCurrentUser();
 
@@ -204,7 +200,6 @@ const HousemaidList: React.FC<HousemaidListProps> = ({
     if (window.confirm(`Are you sure you want to delete ${selectedHousemaids.size} selected records?`)) {
       selectedHousemaids.forEach(id => onDelete(id));
       setSelectedHousemaids(new Set());
-      setShowBulkActions(false);
     }
   };
 
