@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Upload, Camera, X, Eye, Download, Trash2, User } from 'lucide-react';
+import { Upload, Camera, Eye, Download, Trash2 } from 'lucide-react';
 
 interface ProfilePhotoUploadProps {
   photo: {

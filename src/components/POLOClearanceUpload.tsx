@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Upload, FileText, X, Eye, Download, Trash2, Shield } from 'lucide-react';
+import { Upload, FileText, Eye, Download, Trash2, Shield } from 'lucide-react';
 
 interface POLOClearanceUploadProps {
   clearance: {
