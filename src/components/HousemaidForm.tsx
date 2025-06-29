@@ -1068,7 +1068,7 @@ const HousemaidForm: React.FC<HousemaidFormProps> = ({ housemaid, onSave, onCanc
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   required
                 >
-                  <option value="probationary">Probationary Period</option>
+                  <option value="probationary">Probationary</option>
                   <option value="permanent">Permanent</option>
                   <option value="resigned">Resigned</option>
                   <option value="terminated">Terminated</option>
