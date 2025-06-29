@@ -1,6 +1,7 @@
 import React from 'react';
 import { AlertTriangle, CheckCircle, Info } from 'lucide-react';
-import { checkContrast, ColorContrast } from '../utils/colorUtils';
+import { checkContrast } from '../utils/colorUtils';
+import type { ColorContrast } from '../utils/colorUtils';
 
 interface ColorContrastCheckerProps {
   foreground: string;
