@@ -17,7 +17,7 @@ import { BrandSettings } from '../types/brand';
 import { loadBrandSettings } from '../utils/brandSettings';
 import jsPDF from 'jspdf';
 import * as XLSX from 'xlsx';
-import { Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell, Header, Footer, PageNumber, AlignmentType, WidthType, HeadingLevel, ImageRun } from 'docx';
+import { Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell, Header, Footer, PageNumber, AlignmentType, WidthType, HeadingLevel } from 'docx';
 import { saveAs } from 'file-saver';
 
 interface ReportGeneratorProps {
@@ -36,7 +36,7 @@ const ReportGenerator: React.FC<ReportGeneratorProps> = ({ housemaids, onClose }
   const [includePhotos, setIncludePhotos] = useState(true);
   const [includeLogo, setIncludeLogo] = useState(true);
 
-  const brandSettings = loadBrandSettings();
+  const brandSettings: BrandSettings = loadBrandSettings();
 
   const formatDate = (dateString?: string) => {
     if (!dateString) return 'Not specified';
