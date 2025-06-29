@@ -18,7 +18,7 @@ const ColorContrastChecker: React.FC<ColorContrastCheckerProps> = ({
   isLargeText = false,
   className = ''
 }) => {
-  const contrast = checkContrast(foreground, background);
+  const contrast: ColorContrast = checkContrast(foreground, background);
   
   const getIcon = () => {
     switch (contrast.level) {
