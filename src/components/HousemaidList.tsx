@@ -113,7 +113,7 @@ const HousemaidList: React.FC<HousemaidListProps> = ({
           const calc = housemaid.employment?.startDate 
             ? calculateEmploymentStatus(housemaid.employment.startDate, housemaid.employment.status)
             : null;
-          matchesEmployment = calc?.isEligibleForPermanent && housemaid.employment?.status === 'probationary';
+          matchesEmployment = !!(calc?.isEligibleForPermanent) && housemaid.employment?.status === 'probationary';
         } else {
           matchesEmployment = housemaid.employment?.status === employmentFilter;
         }
@@ -211,25 +211,6 @@ const HousemaidList: React.FC<HousemaidListProps> = ({
     return status === 'complete' ? 
       <CheckCircle className="h-4 w-4 text-green-600" /> : 
       <AlertTriangle className="h-4 w-4 text-orange-600" />;
-  };
-
-  const getLocationIcon = (isInside: boolean) => {
-    return isInside ? 
-      <MapPin className="h-4 w-4 text-blue-600" /> : 
-      <MapPin className="h-4 w-4 text-red-600" />;
-  };
-
-  const getEmploymentIcon = (status: 'probationary' | 'permanent' | 'resigned' | 'terminated') => {
-    switch (status) {
-      case 'permanent':
-        return <Award className="h-4 w-4 text-green-600" />;
-      case 'resigned':
-        return <UserMinus className="h-4 w-4 text-blue-600" />;
-      case 'terminated':
-        return <UserX className="h-4 w-4 text-red-600" />;
-      default:
-        return <Clock className="h-4 w-4 text-orange-600" />;
-    }
   };
 
   const HousemaidCard: React.FC<{ housemaid: Housemaid }> = ({ housemaid }) => {
