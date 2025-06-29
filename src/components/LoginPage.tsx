@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Eye, EyeOff, Lock, Mail, Shield, AlertCircle, CheckCircle, Chrome } from 'lucide-react';
+import { Eye, EyeOff, Lock, Mail, Shield, AlertCircle, CheckCircle } from 'lucide-react';
 import { LoginCredentials } from '../types/user';
 import { BrandSettings } from '../types/brand';
 import { initializeGoogleAuth, renderGoogleSignInButton, parseGoogleCredential, GoogleAuthResponse } from '../utils/googleAuth';

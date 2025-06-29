@@ -11,7 +11,6 @@ import {
   Users, 
   Phone, 
   Mail, 
-  MapPin, 
   Calendar, 
   Building, 
   Hash, 
@@ -26,11 +25,8 @@ import {
   SortAsc,
   SortDesc,
   Clock,
-  Award,
   AlertTriangle,
-  CheckCircle,
-  UserX,
-  UserMinus
+  CheckCircle
 } from 'lucide-react';
 import { Housemaid } from '../types/housemaid';
 import { calculateEmploymentStatus, formatDaysWorked, getEmploymentStatusColor, getEmploymentStatusText } from '../utils/employmentCalculations';
