@@ -10,9 +10,6 @@ import {
   Search, 
   UserCheck,
   UserX,
-  Calendar,
-  Mail,
-  Phone,
   X,
   Save,
   AlertCircle

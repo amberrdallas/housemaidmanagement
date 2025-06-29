@@ -5,7 +5,7 @@ export interface EmploymentCalculation {
   isEligibleForPermanent: boolean;
 }
 
-export const calculateEmploymentStatus = (startDate: string, currentStatus: 'probationary' | 'permanent' | 'resigned' | 'terminated'): EmploymentCalculation => {
+export const calculateEmploymentStatus = (startDate: string): EmploymentCalculation => {
   if (!startDate) {
     return {
       daysWorked: 0,
